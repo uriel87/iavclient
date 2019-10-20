@@ -13,6 +13,7 @@ const mediaRoutes = {
 const userRoutes = {
     getUser: "getUser/",
     getLastMediaList: "getLastMediaList/",
+	AddMediaItemToUser: "AddMediaItemToUser/"
 };
 
 const mediaType = {

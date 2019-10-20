@@ -1,35 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { User } from "../components/users";
-import { setName, setEmail } from "../actions/user.action";
 import { BrowserRouter as Router } from "react-router-dom";
-// import Nav from "../components/nav";
+import { setName, setEmail } from "../actions/user.action";
+import { setMediaItem } from "../actions/mediaItem.action";
 import Routes from "../routes/routes";
-// import Signup from "../components/signUp";
-// import Form from "../components/form";
-import MediaForm from "../components/mediaForm/mediaForm.cmp"
 
 
 export const App = props => {
+	
+	console.log("App props", props);
+	
     return (
-        <Router>
-            <div className="container">
-                <h1>hello world</h1>
-            </div>
-            <hr />
-            <div>
-                <MediaForm />
-                {/* <Nav /> */}
-            </div>
+        <Router props={props}>
+            <div className="container"></div>
             <Routes />
-            {/* <Form /> */}
         </Router>
     );
 };
 
 const mapStateToProps = state => {
     return {
-        user: state.user
+        user: state.user,
+		mediaItem: state.mediaItem
     };
 };
 
@@ -40,6 +32,9 @@ const mapDispatchToProps = dispatch => {
         },
         setEmail: email => {
             dispatch(setEmail(email));
+        },
+		setMediaItem: mediaItem => {
+            dispatch(setMediaItem(mediaItem));
         }
     };
 };

@@ -1,11 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-//import axios from "axios";
-import Loading from "./../loading"
 import MediaListItem from "../mediaListItem/mediaListItem"
-
-//import { envRoutes, mediaRoutes, userRoutes } from "../routes/constant.routes"
-
 
 
 const MediaList = (props) => {
