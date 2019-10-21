@@ -1,10 +1,10 @@
 import { constant } from "../constant";
 
 
-export function getUser(id) {
+export function getUser(user) {
     return {
         type: constant.getUser,
-        payload: id
+        payload: user
     };
 }
 

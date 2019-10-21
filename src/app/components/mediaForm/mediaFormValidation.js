@@ -5,9 +5,10 @@ export default function mediaFormValidation(value) {
 
     if (!value.media) {
         error.media = "input is requierd";
-    } else if (!(/^[a-zA-Z0-9$@$!%*?&#^-_. +]+$/.test(value.media))) {
-        error.media = "The medai input should include English or numbers";
     }
+/* 	else if (!(/^[a-zA-Z0-9$@$!%*?&#^-_. +]+$/.test(value.media))) {
+        error.media = "The medai input should include only English or numbers";
+    } */
     //console.log("error", error)
 	
     return error;

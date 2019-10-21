@@ -14,9 +14,9 @@ const MediaListItem = (props) => {
 		<div className="media-list-item">
 			<Link to={`/mediaItem/${props.mediaItem.trackId}`}>	
 				<div className="media-list-item">
-					<h3>{props.mediaItem.artistName}</h3>
-					<h3>{props.mediaItem.collectionArtistName}</h3>
-					<h3>{props.mediaItem.trackName}</h3>
+					<p>{props.mediaItem.artistName}</p>
+					<p>{props.mediaItem.collectionArtistName}</p>
+					<p>{props.mediaItem.trackName}</p>
 				</div>
 			</Link>
 		</div>

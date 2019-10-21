@@ -4,6 +4,9 @@ import { useState } from "react";
 import axios from "axios";
 import { mediaRoutes, mediaType, userRoutes, envRoutes } from "../../routes/constant.routes"
 import Loading from "../loading"
+import LastSearchList from "../lastSearchList/lastSearchList"
+import "./lastSearchForm.css"
+
 
 
 
@@ -24,14 +27,14 @@ const LastSearchForm = () => {
 		console.log("in getLastSearchItems", lastSerachUrlReq)
 		setIsLoading(true);
 		await axios
-		.post(lastSerachUrlReq, null, {
+		.post(lastSerachUrlReq, {
 			params: {
-				email: "user@dd.com"
+				email: "firstUser@dd.com"
 			}
 		})
 		.then(response => {
-			console.log("getLastSearchItems", response.data)
-			setLastSearchItems(response.data.results);
+			console.log("getLastSearchItems", response.data[0].lastSearch)
+			setLastSearchItems(response.data[0].lastSearch);
 			setIsLoading(false);
 		}).catch(error => {
 			console.log(error);
@@ -41,11 +44,12 @@ const LastSearchForm = () => {
 	
 
     return (
-        <div>
-            <form onSubmit={submit} noValidate>
-                <label>Last search Items</label>
-                <button type="submit">Submit</button>
+        <div className="container lastSearchForm-position" >
+            <form onSubmit={submit} noValidate className="last-search-form">
+                <label className="last-search-label">Click to get the last search Items</label>
+                <button className="btn btn-primary" type="submit">Submit</button>
             </form>
+			{isLoading ? <Loading /> : <LastSearchList searchList = {lastSearchItems}/>}
         </div>
     )
 

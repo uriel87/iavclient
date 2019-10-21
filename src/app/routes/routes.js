@@ -12,7 +12,7 @@ const Routes = (props) => {
 	
     return (
         <Switch>
-            <Route path="/" exact component={Home} />
+            <Route path="/" exact component={Home} props={props}/>
             <Route path="/mediaItem/:id" exact component={MediaItem} />
 			<Route component={NoPageFound} />
         </Switch>

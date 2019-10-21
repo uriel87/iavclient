@@ -1,28 +1,23 @@
 import { constant } from "../constant";
 
 
-const initialState = [{
-    id: 1,
-    name: "avi nimmni",
-    email: "avinimni@dd.com",
-    tel: "123456789"
-}, {
-    id: 2,
-    name: "sdfsdf nimsdfsdfsmni",
-    email: "avinsdfsdfimni@dd.com",
-    tel: "456456"
-}];
+const initialState = {
+	id: null,
+	name: "",
+	email: "",
+	tel: ""
+}
+
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        case constant.getUser:
-            // return state.map(user => {
-            //   if (user.id === action.id) {
-            //     return user;
-            //   }
-            // });
+        case constant.setUser:
+			state = {
+				 ...state,
+				 state: action.paylod
+			};
             break;
-        case constant.addUser:
+        case constant.getUser:
             //return {
             // ...state,
             // users: [...state.users, action.newUser]

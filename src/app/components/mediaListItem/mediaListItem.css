@@ -1,4 +1,6 @@
 
 .media-list-item {
-	border: 1px solid;
+	border-bottom: 1px solid #d7d2d5;
+	width: 60%;
+	margin: auto;
 }

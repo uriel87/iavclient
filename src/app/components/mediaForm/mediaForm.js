@@ -7,6 +7,8 @@ import axios from "axios";
 import { mediaRoutes, mediaType, envRoutes, userRoutes } from "../../routes/constant.routes"
 import MediaList from "../mediaList/mediaList"
 import Loading from "../loading"
+import "./mediaForm.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -20,15 +22,11 @@ const MediaForm = () => {
 
 	
     function submit() {
-		//console.log("submitted media", mediaInput.media)
-		//console.log("mediaUrlReq", mediaUrlReq)
 		AddMediaItemToUser();
 		getMediaItem();
-
     }
 	
 	const getMediaItem = async () => {
-		//console.log("in getMediaItem params", mediaInput.media, mediaUrlReq)
 		setIsLoading(true);
 		await axios
 		.post(mediaUrlReq, null, {
@@ -39,7 +37,6 @@ const MediaForm = () => {
 			}
 		})
 		.then(response => {
-			//console.log("getMediaItem", response.data)
 			setMediaSList(response.data.results);
 			setIsLoading(false);
 		}).catch(error => {
@@ -60,7 +57,6 @@ const MediaForm = () => {
 			}
 		})
 		.then(response => {
-			//console.log("addLastMediaToUserUrlReq", response.data)
 			setIsLoading(false);
 		}).catch(error => {
 			console.log(error);
@@ -69,11 +65,12 @@ const MediaForm = () => {
 	};
 
     return (
-        <div>
+        <div className="container">
             <form onSubmit={handleSubmit} noValidate>
-                <label>Media</label>
+                <label>Please enter your media query</label>
                 <div>
                     <input
+						className={errors.media && "input-error"}
                         name="media"
                         type="text"
                         value={mediaInput.media}
@@ -81,7 +78,7 @@ const MediaForm = () => {
                     />
                     {errors && <p className="mediaInput-input-error">{errors.media}</p>}
                 </div>
-                <button type="submit">Submit</button>
+                <button className="btn btn-primary" type="submit">Submit</button>
             </form>
 			
 			{isLoading ? <Loading /> : <MediaList mediaList = {mediaList}/>}

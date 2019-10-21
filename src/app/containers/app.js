@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
-import { setName, setEmail } from "../actions/user.action";
+import { getUser, setEmail } from "../actions/user.action";
 import { setMediaItem } from "../actions/mediaItem.action";
 import Routes from "../routes/routes";
+import Home from "../components/home/home";
+
 
 
 export const App = props => {
@@ -27,8 +29,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setName: name => {
-            dispatch(setName(name));
+        getUser: user => {
+            dispatch(getUser(user));
         },
         setEmail: email => {
             dispatch(setEmail(email));
