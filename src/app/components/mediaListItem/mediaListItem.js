@@ -1,24 +1,28 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
-import "../mediaListItem/mediaListItem.css"
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setMediaItem } from "../../actions/mediaItem.action"
 import mediaItem from"../mediaItem/mediaItem"
 
 
-
 const MediaListItem = (props) => {
+
+	const history = useHistory();
+	const dispatch = useDispatch();
 	
-	//console.log("MediaListItem props", props);
+	function goToMediaItemPage(mediaItem) {
+		dispatch(setMediaItem(mediaItem));
+		history.push(`/mediaItem/${mediaItem.trackId}`);	
+	}
 	
 	return (
-		<div className="media-list-item">
-			<Link to={`/mediaItem/${props.mediaItem.trackId}`}>	
-				<div className="media-list-item">
-					<p>{props.mediaItem.artistName}</p>
-					<p>{props.mediaItem.collectionArtistName}</p>
-					<p>{props.mediaItem.trackName}</p>
-				</div>
-			</Link>
+		<div className="media-list-item" onClick={goToMediaItemPage.bind(this, props.mediaItem)} >
+			<div className="media-list-item">
+				<p>{props.mediaItem.artistName}</p>
+				<p>{props.mediaItem.collectionArtistName}</p>
+				<p>{props.mediaItem.trackName}</p>
+			</div>
 		</div>
 	)
 	
@@ -26,5 +30,3 @@ const MediaListItem = (props) => {
 
 export default MediaListItem;
 
-/* 					<mediaItem mediaItem={mediaItem} >{props.mediaItem.artistName}</mediaItem>
- */

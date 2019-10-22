@@ -1,3 +1,4 @@
+
 import { constant } from "../constant";
 
 
@@ -12,26 +13,16 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case constant.setUser:
-			state = {
+			return state = {
 				 ...state,
-				 state: action.paylod
+				id: action.payload._id,
+				name: action.payload.name,
+				email: action.payload.email,
+				tel: action.payload.tel
 			};
-            break;
-        case constant.getUser:
-            //return {
-            // ...state,
-            // users: [...state.users, action.newUser]
-
-            // state = {
-            //     ...state,
-            //     state: action.paylod
-            //};
-            //}
-            break;
         default:
             return state;
     }
-    return state;
 };
 
 export default userReducer;

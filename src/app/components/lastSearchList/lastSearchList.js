@@ -1,11 +1,10 @@
+
 import React from "react";
 import { useState, useEffect } from "react";
 import LastSearchListItems from "../lastSearchListItems/lastSearchListItems"
 
 
 const LastSearchList = (props) => {
-	
-	console.log("props searchList render", props.searchList)
 
 	const [lastSearcList, setLastSearcList] = useState(props.searchList);
   

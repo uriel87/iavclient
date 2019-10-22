@@ -11,7 +11,6 @@ import "./mediaForm.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
 const MediaForm = () => {
 
 	const { mediaInput, handleSubmit, handleChange, errors } = useMediaListForm(submit, mediaFormValidation);
@@ -47,7 +46,6 @@ const MediaForm = () => {
 	
 	
 	const AddMediaItemToUser = async () => {
-		console.log("in AddMediaItemToUser", addLastMediaToUserUrlReq)
 		setIsLoading(true);
 		await axios
 		.post(addLastMediaToUserUrlReq, {

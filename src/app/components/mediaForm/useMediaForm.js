@@ -1,6 +1,6 @@
 
-//import React from "react";
 import { useState, useEffect } from "react";
+
 
 const useMediaForm = (callback, mediaFormValidation) => {
 
@@ -18,8 +18,7 @@ const useMediaForm = (callback, mediaFormValidation) => {
             ...mediaInput,
             [name]: value
         })
-/*         console.log("handleChange", mediaInput)
- */    };
+	};
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -28,8 +27,6 @@ const useMediaForm = (callback, mediaFormValidation) => {
     }
 
     useEffect(() => {
-        // checek if no error
-		//console.log("useEffect", mediaInput)
         if (Object.keys(errors).length === 0 && isSubmitted) {
 			callback();
         }

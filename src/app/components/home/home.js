@@ -4,46 +4,49 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import MediaForm from "../mediaForm/mediaForm"
 import LastSearchForm from "../lastSearchForm/lastSearchForm"
+import Loading from "../loading"
 import { envRoutes, userRoutes } from "../../routes/constant.routes";
-import { constant } from "../../constant";
+import { setUser } from "../../actions/user.action"
 import "./home.css"
 
 
-export const Home = ( { user } ) => {
+export const Home = () => {
 	
-	console.log("Home props", user);
-	
-	const userProps = useSelector(state => state.user);
+	const user = useSelector(state => state.user);
 	const dispatch = useDispatch();
-	
+	const [isLoading, setIsLoading] = useState(false)
+
 	 useEffect(() => {
 		getUser("firstuser@dd.com");
 	}, []);
 	
 	const getUser = async (userEmail) => {
-		console.log("params get user", userEmail);
-		console.log("url get user", envRoutes.envProduction + userRoutes.getUser);
+		setIsLoading(true);
 		await axios.post(envRoutes.envProduction + userRoutes.getUser, {
 			params: {
 				email: userEmail
 			}
 		})
 		.then(response => {
-			console.log("user.reducer get user", response)
-			dispatch({ type: constant.setUser, payload: response.data })
+			dispatch(setUser(response.data))
+			setIsLoading(false);
 		})
 		.catch(err => {
-			//dispatch({ type: payload.FAILURE })
+			setIsLoading(false);
 		})
 	}
 	
     return (
-        <div className="container home-text" >
-            <h1 className="home-title" >Home</h1>
-			<h2 className="user-name-title"> Hello {user} </h2>
+	<div className="container home-text" >
+	{isLoading ? <Loading /> :
+		<div>
+			<h1 className="home-title" >Home</h1>
+			<h2 className="user-name-title"> Hello {user.name} </h2>
 			<MediaForm />
 			<LastSearchForm />
-        </div>
+		</div>
+	}
+	</div>
     )
 }
 

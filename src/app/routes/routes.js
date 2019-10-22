@@ -6,17 +6,16 @@ import NoPageFound from "../components/noPageFound/noPageFound.js";
 
 
 
-const Routes = (props) => {
-	
-	console.log("Routes props", props);
+const Routes = () => {
 	
     return (
         <Switch>
-            <Route path="/" exact component={Home} props={props}/>
+            <Route path="/" exact component={Home} />
             <Route path="/mediaItem/:id" exact component={MediaItem} />
 			<Route component={NoPageFound} />
         </Switch>
     );
+	
 };
 
 export default Routes;

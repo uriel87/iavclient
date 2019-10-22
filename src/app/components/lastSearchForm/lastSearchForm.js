@@ -2,12 +2,10 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { mediaRoutes, mediaType, userRoutes, envRoutes } from "../../routes/constant.routes"
+import { userRoutes, envRoutes } from "../../routes/constant.routes"
 import Loading from "../loading"
 import LastSearchList from "../lastSearchList/lastSearchList"
 import "./lastSearchForm.css"
-
-
 
 
 const LastSearchForm = () => {
@@ -20,11 +18,9 @@ const LastSearchForm = () => {
     function submit(event) {
 		event.preventDefault();
 		getLastSearchItems(lastSerachUrlReq)
-
     }
 	
 	const getLastSearchItems = async () => {
-		console.log("in getLastSearchItems", lastSerachUrlReq)
 		setIsLoading(true);
 		await axios
 		.post(lastSerachUrlReq, {
@@ -33,7 +29,6 @@ const LastSearchForm = () => {
 			}
 		})
 		.then(response => {
-			console.log("getLastSearchItems", response.data[0].lastSearch)
 			setLastSearchItems(response.data[0].lastSearch);
 			setIsLoading(false);
 		}).catch(error => {
