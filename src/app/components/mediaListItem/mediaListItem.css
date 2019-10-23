@@ -1,6 +1,41 @@
 
-.media-list-item {
-	border-bottom: 1px solid #d7d2d5;
-	width: 60%;
-	margin: auto;
+
+.media-list-item-container {
+	display: grid;
+	grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+	margin: 40px auto;
+}
+
+
+.media-list-item-btn {
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 7;
+    grid-column-end: 6;
+}
+
+
+.media-list-item-artworkUrl60 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.media-list-item-trackName {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.media-list-item-artistName {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.media-list-item-collectionName {
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+.media-list-item-releaseDate {
+    grid-column-start: 5;
+    grid-column-end: 6;
 }

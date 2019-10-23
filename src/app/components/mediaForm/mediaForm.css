@@ -1,9 +1,9 @@
 
 .mediaInput-input-error {
 	color: #e10808;
+	margin-left: 10px;
 }
 
 .input-error {
 	border: 1px solid #e10808;
 }
-

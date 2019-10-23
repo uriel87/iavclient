@@ -2,6 +2,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import MediaListItem from "../mediaListItem/mediaListItem"
+import "./mediaList.css"
+
 
 
 const MediaList = (props) => {
@@ -13,11 +15,13 @@ const MediaList = (props) => {
 	}, [props]);
   
   return (
-    <div className="container">
-		{ mediaList.map((media, index) => (
-			<MediaListItem key={index}  mediaItem={media} />
-		))}
-    </div>
+	<div className="container flex-media-list">
+		<div>
+			{ mediaList.map((media, index) => (
+				<MediaListItem key={index}  mediaItem={media} />
+			))}
+		</div>
+	</div>
   );
 };
 

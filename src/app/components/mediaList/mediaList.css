@@ -1,0 +1,17 @@
+
+.container.flex-media-list {
+	margin: 20px auto;
+}
+
+.flex-row-media {
+	flex-grow: 1;
+	text-align: center;
+	border-bottom: 0.5px solid #1233ab;
+}
+
+
+.flex-row-media:after{
+  content: " ";
+}
+
+

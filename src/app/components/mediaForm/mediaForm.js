@@ -66,17 +66,23 @@ const MediaForm = () => {
         <div className="container">
             <form onSubmit={handleSubmit} noValidate>
                 <label>Please enter your media query</label>
-                <div>
+                <div className="input-group mb-3">
                     <input
-						className={errors.media && "input-error"}
+						className={errors.media && "input-error"} 
                         name="media"
                         type="text"
+						placeholder="Search media"
                         value={mediaInput.media}
                         onChange={handleChange}
                     />
                     {errors && <p className="mediaInput-input-error">{errors.media}</p>}
                 </div>
-                <button className="btn btn-primary" type="submit">Submit</button>
+				<div className="input-group-append">
+					<button className="btn btn-info" type="submit">
+						<span className="glyphicon glyphicon-search">Search media</span>
+					</button>
+				</div>
+				
             </form>
 			
 			{isLoading ? <Loading /> : <MediaList mediaList = {mediaList}/>}

@@ -1,4 +1,44 @@
 
-.media-list-item {
-	border: 1px solid;
+.media-item {
+	display: grid;
+	grid-template-columns: 3fr 9fr; 
+	background-color: #f0f0f0;
+	padding: 10px;
+	height : 400px;
+}
+
+.media-header {
+	text-align: center;
+	border-bottom: 1px #808080 solid;
+	width: 40%;
+	margin: auto;
+	padding: 20px 0;
+	margin-bottom: 40px;
+}
+
+
+.media-name-header {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.media-name-image {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    justify-items: start;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.media-details-content div {
+	
+}
+
+.media-details-audio {
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 3;
 }
